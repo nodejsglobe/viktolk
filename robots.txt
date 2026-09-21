@@ -25,4 +25,4 @@ User-agent: YandexBot
 Disallow:
 
 # 📌 Sitemap Location (Replace with your actual sitemap URL)
-Sitemap: https://nodejsglobe.github.io/viktolk/
+Sitemap: https://nodejsglobe.github.io/viktolk/sitemap.xml
