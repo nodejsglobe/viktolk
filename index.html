@@ -3,16 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
-  <meta name="robots" content="noindex, nofollow, noai, noimageai">
+
+<!-- AI Crawlers & Bots Block -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noai, noimageai">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="bingbot" content="noindex, nofollow">
 <meta name="GPTBot" content="noindex">
+<meta name="ChatGPT-User" content="noindex">
+<meta name="OAI-SearchBot" content="noindex">
 <meta name="ClaudeBot" content="noindex">
+<meta name="anthropic-ai" content="noindex">
+<meta name="PerplexityBot" content="noindex">
 <meta name="CCBot" content="noindex">
+<meta name="Bytespider" content="noindex">
+<meta name="Applebot-Extended" content="noindex">
+<meta name="Amazonbot" content="noindex">
+<meta name="cohere-ai" content="noindex">
+<meta name="meta-externalagent" content="noindex">
+
 <meta name="theme-color" content="#070a12">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="format-detection" content="telephone=no">
-<title>ViktOLK — Secure Account Registration</title>
+<title>ViktOLK — Notice</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,32 +31,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-/* ============ BASE ============ */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 
 :root{
   --bg:#070a12;
   --text:#e9edf7;
   --muted:#8b94ad;
-  --stroke:rgba(255,255,255,.09);
-  --stroke-soft:rgba(255,255,255,.06);
   --primary:#6d5efc;
   --primary-2:#00d4ff;
+  --warn:#ffb547;
   --danger:#ff4d6d;
-  --success:#25d366;
-
-  /* Safe area support */
-  --sat:env(safe-area-inset-top, 0px);
-  --sab:env(safe-area-inset-bottom, 0px);
-  --sal:env(safe-area-inset-left, 0px);
-  --sar:env(safe-area-inset-right, 0px);
+  --sat:env(safe-area-inset-top,0px);
+  --sab:env(safe-area-inset-bottom,0px);
 }
 
-html{
-  scroll-behavior:smooth;
-  -webkit-text-size-adjust:100%;
-  text-size-adjust:100%;
-}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 body{
   font-family:'Plus Jakarta Sans',system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -56,282 +56,141 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:44px 18px;
-  padding-top:calc(44px + var(--sat));
-  padding-bottom:calc(44px + var(--sab));
-  padding-left:calc(18px + var(--sal));
-  padding-right:calc(18px + var(--sar));
+  padding:24px 18px;
+  padding-top:calc(24px + var(--sat));
+  padding-bottom:calc(24px + var(--sab));
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   position:relative;
 }
 
-/* Ambient background glow — smaller on mobile */
+/* Ambient background */
 body::before{
   content:'';
   position:fixed;
   inset:0;
   background:
-    radial-gradient(720px 520px at 10% 4%, rgba(109,94,252,.30), transparent 62%),
-    radial-gradient(620px 520px at 92% 10%, rgba(0,212,255,.18), transparent 62%),
-    radial-gradient(760px 620px at 50% 112%, rgba(255,61,129,.16), transparent 62%);
+    radial-gradient(680px 520px at 12% 8%, rgba(255,181,71,.16), transparent 62%),
+    radial-gradient(620px 520px at 92% 12%, rgba(109,94,252,.22), transparent 62%),
+    radial-gradient(720px 620px at 50% 112%, rgba(255,61,129,.14), transparent 62%);
   pointer-events:none;
   z-index:0;
 }
 
-/* ============ CARD ============ */
+/* Warning Card */
 .card{
   position:relative;
   z-index:1;
   width:100%;
-  max-width:920px;
-  background:linear-gradient(160deg, rgba(255,255,255,.058), rgba(255,255,255,.018));
-  border:1px solid var(--stroke);
+  max-width:600px;
+  text-align:center;
+  background:linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.018));
+  border:1px solid rgba(255,181,71,.22);
   border-radius:30px;
-  padding:44px clamp(20px,4vw,50px) 40px;
+  padding:52px clamp(24px,5vw,52px) 44px;
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
-  box-shadow:0 34px 90px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.07);
+  box-shadow:
+    0 34px 90px rgba(0,0,0,.6),
+    0 0 70px rgba(255,181,71,.08),
+    inset 0 1px 0 rgba(255,255,255,.07);
   animation:cardIn .7s cubic-bezier(.2,.8,.25,1) both;
 }
 @keyframes cardIn{
-  from{opacity:0;transform:translateY(26px) scale(.985)}
+  from{opacity:0;transform:translateY(26px) scale(.98)}
   to{opacity:1;transform:translateY(0) scale(1)}
 }
 
-/* ============ HEADER ============ */
-.header{text-align:center;margin-bottom:34px}
+/* Warning icon */
+.icon-ring{
+  width:110px;
+  height:110px;
+  margin:0 auto 28px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  position:relative;
+  background:radial-gradient(circle at 50% 40%, rgba(255,181,71,.28), rgba(255,181,71,.06) 70%);
+  border:1px solid rgba(255,181,71,.4);
+  box-shadow:
+    0 0 0 12px rgba(255,181,71,.06),
+    0 0 0 24px rgba(255,181,71,.03),
+    0 18px 44px rgba(255,181,71,.28);
+  animation:pulse 2.6s ease-in-out infinite;
+}
+.icon-ring i{
+  font-size:2.8rem;
+  color:var(--warn);
+  filter:drop-shadow(0 6px 18px rgba(255,181,71,.5));
+}
+@keyframes pulse{
+  0%,100%{box-shadow:
+    0 0 0 12px rgba(255,181,71,.06),
+    0 0 0 24px rgba(255,181,71,.03),
+    0 18px 44px rgba(255,181,71,.28)}
+  50%{box-shadow:
+    0 0 0 18px rgba(255,181,71,.09),
+    0 0 0 34px rgba(255,181,71,.02),
+    0 22px 54px rgba(255,181,71,.42)}
+}
 
+/* Badge */
 .badge{
   display:inline-flex;
   align-items:center;
   gap:8px;
   font-size:.72rem;
   font-weight:700;
-  letter-spacing:1.4px;
+  letter-spacing:1.6px;
   text-transform:uppercase;
-  color:#b9b2ff;
-  background:rgba(109,94,252,.14);
-  border:1px solid rgba(109,94,252,.32);
+  color:#ffd39a;
+  background:rgba(255,181,71,.12);
+  border:1px solid rgba(255,181,71,.3);
   padding:7px 16px;
   border-radius:100px;
-  margin-bottom:20px;
-}
-.badge i{font-size:.72rem;color:var(--primary-2)}
-
-.brand{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:15px;
-  margin-bottom:12px;
-  flex-wrap:wrap;
+  margin-bottom:22px;
 }
 
-.brand-mark{
-  width:56px;height:56px;
-  border-radius:18px;
-  display:grid;place-items:center;
-  font-size:1.5rem;
-  color:#fff;
-  background:linear-gradient(135deg,#6d5efc,#00d4ff);
-  box-shadow:0 12px 34px rgba(109,94,252,.5), inset 0 1px 0 rgba(255,255,255,.4);
-  flex-shrink:0;
-}
-
-h1.title{
-  font-size:clamp(2.1rem,5.4vw,3rem);
+/* Title */
+h1{
+  font-size:clamp(1.9rem,5.6vw,2.6rem);
   font-weight:800;
-  letter-spacing:-1.6px;
-  line-height:1;
-  background:linear-gradient(100deg,#ffffff 8%,#b3a7ff 46%,#5fe3ff 92%);
+  letter-spacing:-1.2px;
+  line-height:1.15;
+  margin-bottom:16px;
+  background:linear-gradient(100deg,#ffffff 8%,#ffd39a 50%,#ff9e6d 92%);
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
   color:transparent;
-  filter:drop-shadow(0 6px 26px rgba(109,94,252,.35));
+  filter:drop-shadow(0 6px 26px rgba(255,181,71,.28));
 }
 
-.subtitle{
-  color:var(--muted);
-  font-size:.94rem;
+/* Message */
+.message{
+  font-size:1.05rem;
   font-weight:500;
-  margin-top:6px;
+  color:#b8c0d6;
+  line-height:1.7;
+  margin-bottom:10px;
+  padding:0 4px;
+}
+.message strong{
+  color:#fff;
+  font-weight:700;
 }
 
+/* Divider */
 .divider{
   height:1px;
-  margin:26px auto 30px;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent);
+  margin:28px auto 30px;
+  max-width:280px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);
 }
 
-/* ============ FORM GRID ============ */
-.form-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px 22px;
-}
-
-.field{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-  min-width:0;
-}
-
-.field label{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-size:.79rem;
-  font-weight:600;
-  letter-spacing:.45px;
-  color:#9aa3ba;
-  text-transform:uppercase;
-}
-.field label i{
-  font-size:.78rem;
-  color:var(--primary);
-  opacity:.9;
-}
-
-.control{
-  position:relative;
-  display:flex;
-  align-items:center;
-}
-
-.control > i.lead{
-  position:absolute;
-  left:16px;
-  font-size:.92rem;
-  color:#6f7893;
-  pointer-events:none;
-  transition:color .25s ease;
-  z-index:1;
-}
-
-.control input,
-.control select{
-  width:100%;
-  font-family:inherit;
-  /* 16px min to prevent iOS zoom on focus */
-  font-size:16px;
-  font-weight:500;
-  color:var(--text);
-  background:rgba(255,255,255,.035);
-  border:1px solid var(--stroke-soft);
-  border-radius:15px;
-  padding:15px 16px 15px 45px;
-  outline:none;
-  transition:border-color .25s ease, box-shadow .25s ease, background .25s ease;
-  appearance:none;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  line-height:1.3;
-  /* Prevent text selection weirdness on mobile */
-  -webkit-user-select:text;
-  user-select:text;
-}
-
-.control input::placeholder{color:#5d6580;font-weight:400;opacity:1}
-
-.control input:hover,
-.control select:hover{
-  border-color:rgba(255,255,255,.16);
-  background:rgba(255,255,255,.05);
-}
-
-.control input:focus,
-.control select:focus{
-  border-color:rgba(109,94,252,.75);
-  background:rgba(109,94,252,.07);
-  box-shadow:0 0 0 4px rgba(109,94,252,.16);
-}
-.control input:focus ~ i.lead,
-.control:focus-within > i.lead{color:var(--primary-2)}
-
-.control select{cursor:pointer;padding-right:44px}
-.control select option{background:#0e1320;color:#e9edf7;font-size:16px}
-
-/* Custom chevron for selects */
-.control.is-select::after{
-  content:'';
-  position:absolute;
-  right:19px;
-  top:50%;
-  width:8px;height:8px;
-  border-right:2px solid #7b839d;
-  border-bottom:2px solid #7b839d;
-  transform:translateY(-72%) rotate(45deg);
-  pointer-events:none;
-  transition:border-color .25s ease;
-}
-.control.is-select:focus-within::after{border-color:var(--primary-2)}
-
-/* Password eye toggle — larger touch target */
-.eye{
-  position:absolute;
-  right:8px;
-  width:42px;height:42px;
-  display:grid;place-items:center;
-  border:none;
-  background:transparent;
-  color:#7b839d;
-  border-radius:12px;
-  cursor:pointer;
-  font-size:1rem;
-  transition:.22s;
-  z-index:2;
-}
-.eye:hover{color:var(--primary-2);background:rgba(255,255,255,.06)}
-.eye:active{transform:scale(.94);background:rgba(255,255,255,.1)}
-.control.has-eye input{padding-right:54px}
-
-/* Error message */
-.error-msg{
-  display:none;
-  align-items:center;
-  gap:6px;
-  font-size:.77rem;
-  font-weight:600;
-  color:var(--danger);
-  padding-left:2px;
-  line-height:1.35;
-}
-.error-msg::before{
-  content:'\f06a';
-  font-family:'Font Awesome 6 Free';
-  font-weight:900;
-  font-size:.74rem;
-  flex-shrink:0;
-}
-
-/* Invalid state */
-.field.invalid .control input,
-.field.invalid .control select{
-  border-color:rgba(255,77,109,.85);
-  background:rgba(255,77,109,.07);
-  box-shadow:0 0 0 4px rgba(255,77,109,.13);
-}
-.field.invalid .control > i.lead{color:var(--danger)}
-.field.invalid .error-msg{display:flex}
-.field.invalid .control{animation:shake .38s cubic-bezier(.36,.07,.19,.97) both}
-@keyframes shake{
-  10%,90%{transform:translateX(-2px)}
-  20%,80%{transform:translateX(4px)}
-  30%,50%,70%{transform:translateX(-7px)}
-  40%,60%{transform:translateX(7px)}
-}
-
-/* ============ SUBMIT ============ */
-.submit-wrap{
-  grid-column:1 / -1;
-  margin-top:12px;
-}
-
-.btn-submit{
+/* Close button */
+.btn-close{
   width:100%;
   font-family:inherit;
   font-size:1.02rem;
@@ -342,7 +201,7 @@ h1.title{
   border:none;
   border-radius:17px;
   cursor:pointer;
-  display:flex;
+  display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:11px;
@@ -353,747 +212,156 @@ h1.title{
   transition:background-position .45s ease, transform .22s ease, box-shadow .3s ease;
   -webkit-tap-highlight-color:transparent;
   touch-action:manipulation;
-  min-height:56px;
+  min-height:58px;
 }
-.btn-submit:hover{
+.btn-close:hover{
   background-position:100% 0;
   transform:translateY(-2px);
   box-shadow:0 22px 52px rgba(109,94,252,.55), inset 0 1px 0 rgba(255,255,255,.3);
 }
-.btn-submit:active{transform:translateY(0) scale(.985)}
-.btn-submit i{font-size:1.05rem}
+.btn-close:active{transform:translateY(0) scale(.985)}
+.btn-close i{font-size:1.05rem}
 
-.form-note{
-  grid-column:1 / -1;
-  text-align:center;
-  font-size:.79rem;
+/* Small hint under button */
+.hint{
+  margin-top:16px;
+  font-size:.78rem;
   font-weight:500;
   color:#6d7590;
-  margin-top:14px;
+  line-height:1.5;
   display:flex;
   align-items:center;
   justify-content:center;
   gap:7px;
   flex-wrap:wrap;
-  padding:0 6px;
-  line-height:1.4;
 }
-.form-note i{color:var(--success);font-size:.8rem}
+.hint i{color:#8b94ad;font-size:.8rem}
 
-/* ============ SUCCESS MODAL ============ */
-.overlay{
-  position:fixed;
-  inset:0;
-  z-index:99;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:22px;
-  padding-top:calc(22px + var(--sat));
-  padding-bottom:calc(22px + var(--sab));
-  background:rgba(4,7,14,.78);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  opacity:0;
-  visibility:hidden;
-  transition:opacity .35s ease, visibility .35s ease;
-  overflow-y:auto;
-}
-.overlay.show{opacity:1;visibility:visible}
-
-.modal{
-  width:100%;
-  max-width:430px;
-  text-align:center;
-  padding:44px 32px 34px;
-  border-radius:28px;
-  background:linear-gradient(165deg,#141a2c,#0b0f1b);
-  border:1px solid rgba(255,255,255,.1);
-  box-shadow:0 40px 100px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.07);
-  transform:translateY(20px) scale(.94);
-  transition:transform .45s cubic-bezier(.2,.9,.25,1.15);
-  margin:auto;
-}
-.overlay.show .modal{transform:translateY(0) scale(1)}
-
-.check-circle{
-  width:82px;height:82px;
-  margin:0 auto 22px;
-  border-radius:50%;
-  display:grid;place-items:center;
-  font-size:2.1rem;
-  color:#fff;
-  background:linear-gradient(135deg,#22c55e,#00d4ff);
-  box-shadow:0 0 0 10px rgba(34,197,94,.11), 0 18px 44px rgba(34,197,94,.42);
-  animation:pop .55s cubic-bezier(.2,.9,.3,1.5) both .1s;
-}
-@keyframes pop{
-  0%{transform:scale(.3);opacity:0}
-  100%{transform:scale(1);opacity:1}
-}
-
-.modal h2{
-  font-size:1.65rem;
-  font-weight:800;
-  letter-spacing:-.7px;
-  margin-bottom:8px;
-  background:linear-gradient(100deg,#ffffff,#a8ffd2 55%,#5fe3ff);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.modal .lead-txt{
-  font-size:.86rem;
-  font-weight:600;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  color:#7b839d;
-  margin-bottom:12px;
-}
-
-.id-box{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  padding:18px 20px;
-  border-radius:16px;
-  background:rgba(109,94,252,.13);
-  border:1px dashed rgba(109,94,252,.55);
-  margin-bottom:16px;
-  animation:idGlow 2.4s ease-in-out infinite;
-  flex-wrap:nowrap;
-  overflow:hidden;
-}
-@keyframes idGlow{
-  0%,100%{box-shadow:0 0 0 0 rgba(109,94,252,.28)}
-  50%{box-shadow:0 0 0 9px rgba(109,94,252,0)}
-}
-
-.id-box span{
-  font-family:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;
-  font-size:1.4rem;
-  font-weight:700;
-  letter-spacing:2.4px;
-  color:#c7c0ff;
-  word-break:break-all;
-  min-width:0;
-}
-
-.copy-btn{
-  border:none;
-  width:42px;height:42px;
-  border-radius:12px;
-  display:grid;place-items:center;
-  cursor:pointer;
-  color:#b9b2ff;
-  background:rgba(255,255,255,.07);
-  transition:.22s;
-  font-size:.95rem;
-  flex-shrink:0;
-  touch-action:manipulation;
-}
-.copy-btn:hover{background:rgba(109,94,252,.35);color:#fff;transform:translateY(-1px)}
-.copy-btn:active{transform:scale(.94)}
-
-.save-txt{
-  font-size:1rem;
-  font-weight:700;
-  color:#ffd76a;
-  margin-bottom:26px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-
-.btn-done{
-  width:100%;
-  font-family:inherit;
-  font-size:.98rem;
-  font-weight:700;
-  color:#fff;
-  padding:16px;
-  border:none;
-  border-radius:15px;
-  cursor:pointer;
-  background:linear-gradient(100deg,#6d5efc,#00d4ff);
-  background-size:200% 100%;
-  box-shadow:0 14px 34px rgba(109,94,252,.4);
-  transition:.3s;
-  min-height:54px;
-  touch-action:manipulation;
-}
-.btn-done:hover{background-position:100% 0;transform:translateY(-2px)}
-.btn-done:active{transform:translateY(0) scale(.985)}
-
-/* ============ MOBILE OPTIMIZATIONS ============ */
+/* Mobile */
 @media (max-width:680px){
-  body{
-    padding:0;
-    padding-top:var(--sat);
-    padding-bottom:var(--sab);
-    align-items:flex-start;
-    display:block;
-  }
-
-  .card{
-    max-width:100%;
-    margin:0;
-    border-radius:0;
-    border-left:none;
-    border-right:none;
-    border-top:1px solid var(--stroke);
-    border-bottom:1px solid var(--stroke);
-    padding:28px 18px 34px;
-    min-height:calc(100vh - var(--sat) - var(--sab));
-    min-height:calc(100dvh - var(--sat) - var(--sab));
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-  }
-
-  .header{margin-bottom:26px}
-  .badge{font-size:.68rem;padding:6px 13px;margin-bottom:16px;letter-spacing:1.2px}
-  .brand{gap:12px;margin-bottom:10px}
-  .brand-mark{width:48px;height:48px;font-size:1.3rem;border-radius:15px}
-  h1.title{font-size:2.1rem;letter-spacing:-1.2px}
-  .subtitle{font-size:.85rem;line-height:1.4;padding:0 6px}
-  .divider{margin:20px auto 24px}
-
-  .form-grid{
-    grid-template-columns:1fr;
-    gap:16px;
-  }
-
-  .field label{font-size:.74rem;letter-spacing:.4px}
-  .field label i{font-size:.74rem}
-
-  /* Larger touch-friendly inputs */
-  .control input,
-  .control select{
-    padding:16px 16px 16px 46px;
-    border-radius:14px;
-    font-size:16px; /* CRITICAL: prevents iOS auto-zoom */
-  }
-  .control > i.lead{left:17px;font-size:1rem}
-  .control select{padding-right:46px}
-  .control.has-eye input{padding-right:58px}
-  .eye{width:44px;height:44px;right:6px;font-size:1.05rem}
-  .control.is-select::after{right:20px;width:9px;height:9px;border-width:0 2px 2px 0}
-
-  .error-msg{font-size:.76rem;padding-left:1px}
-
-  .submit-wrap{margin-top:8px}
-
-  .btn-submit{
-    padding:18px 20px;
-    font-size:1rem;
-    border-radius:16px;
-    min-height:58px;
-    gap:10px;
-    /* Larger tap feel */
-    font-weight:800;
-    letter-spacing:.2px;
-  }
-  .btn-submit i{font-size:1.1rem}
-
-  .form-note{
-    font-size:.75rem;
-    margin-top:14px;
-    padding:0 4px;
-    line-height:1.5;
-  }
-
-  /* Modal full-width on mobile */
-  .overlay{padding:16px;padding-top:calc(16px + var(--sat));padding-bottom:calc(16px + var(--sab))}
-  .modal{
-    padding:34px 22px 26px;
-    border-radius:24px;
-    max-width:100%;
-  }
-  .check-circle{width:72px;height:72px;font-size:1.9rem;margin-bottom:18px}
-  .modal h2{font-size:1.5rem}
-  .id-box{padding:16px 14px;gap:10px}
-  .id-box span{font-size:1.15rem;letter-spacing:1.8px}
-  .copy-btn{width:40px;height:40px}
-  .save-txt{font-size:.94rem;margin-bottom:22px}
-  .btn-done{padding:16px;font-size:.95rem;min-height:54px}
+  body{padding:18px 14px;padding-top:calc(18px + var(--sat));padding-bottom:calc(18px + var(--sab))}
+  .card{padding:40px 22px 34px;border-radius:24px}
+  .icon-ring{width:92px;height:92px;margin-bottom:22px}
+  .icon-ring i{font-size:2.3rem}
+  h1{font-size:1.95rem;letter-spacing:-.9px}
+  .message{font-size:.98rem;line-height:1.65}
+  .divider{margin:22px auto 24px}
+  .btn-close{padding:18px 20px;font-size:1rem;border-radius:16px;min-height:60px}
 }
 
-/* ============ EXTRA SMALL PHONES ============ */
 @media (max-width:380px){
-  .card{padding:24px 14px 30px}
-  h1.title{font-size:1.85rem;letter-spacing:-1px}
-  .brand-mark{width:44px;height:44px;font-size:1.2rem;border-radius:13px}
-  .subtitle{font-size:.8rem}
-  .control input,
-  .control select{padding:15px 14px 15px 42px;font-size:16px}
-  .control > i.lead{left:15px;font-size:.92rem}
-  .eye{width:40px;height:40px;right:4px}
-  .control.has-eye input{padding-right:52px}
-  .btn-submit{padding:16px 18px;font-size:.95rem;min-height:54px}
-  .id-box span{font-size:1rem;letter-spacing:1.4px}
-  .modal{padding:30px 18px 22px}
-  .modal h2{font-size:1.35rem}
+  .card{padding:34px 18px 28px}
+  .icon-ring{width:80px;height:80px}
+  .icon-ring i{font-size:2rem}
+  h1{font-size:1.7rem}
+  .message{font-size:.92rem}
 }
 
-/* ============ LANDSCAPE MOBILE ============ */
-@media (max-width:900px) and (orientation:landscape) and (max-height:500px){
-  body{padding:12px}
-  .card{padding:22px 24px 26px;border-radius:20px}
-  .header{margin-bottom:18px}
-  .badge{margin-bottom:12px}
-  .brand-mark{width:42px;height:42px}
-  h1.title{font-size:1.9rem}
-  .divider{margin:14px auto 18px}
-  .form-grid{grid-template-columns:1fr 1fr;gap:14px}
-}
-
-/* ============ ACCESSIBILITY / FOCUS ============ */
+/* Reduced motion */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.01ms !important;
     animation-iteration-count:1 !important;
     transition-duration:.01ms !important;
-    scroll-behavior:auto !important;
   }
 }
 
-/* Better focus ring for keyboard users */
-.control input:focus-visible,
-.control select:focus-visible{
-  outline:2px solid rgba(109,94,252,.6);
-  outline-offset:2px;
-}
-
-/* Prevent body scroll when modal is open — better iOS handling */
-body.modal-open{
-  overflow:hidden;
-  position:fixed;
-  width:100%;
-  height:100%;
+/* Focus ring */
+.btn-close:focus-visible{
+  outline:2px solid rgba(109,94,252,.7);
+  outline-offset:3px;
 }
 </style>
 </head>
 <body>
 
-<!-- ================= REGISTRATION CARD ================= -->
 <main class="card">
 
-  <header class="header">
-    <div class="badge"><i class="fa-solid fa-shield-halved"></i> Secure Registration</div>
-
-    <div class="brand">
-      <div class="brand-mark"><i class="fa-solid fa-bolt"></i></div>
-      <h1 class="title">ViktOLK</h1>
-    </div>
-
-    <p class="subtitle">Create your merchant account in a few simple steps</p>
-    <div class="divider"></div>
-  </header>
-
-  <form id="viktolkForm" class="form-grid" novalidate autocomplete="off">
-
-    <!-- Name -->
-    <div class="field">
-      <label for="name"><i class="fa-solid fa-user"></i> Name</label>
-      <div class="control">
-        <i class="fa-solid fa-user lead"></i>
-        <input type="text" id="name" placeholder="Enter your full name"
-               autocomplete="name" autocapitalize="words" enterkeyhint="next">
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- ViktOLK ID -->
-    <div class="field">
-      <label for="viktolkId"><i class="fa-solid fa-id-badge"></i> ViktOLK ID</label>
-      <div class="control">
-        <i class="fa-solid fa-id-badge lead"></i>
-        <input type="text" id="viktolkId" placeholder="e.g. VIK564400"
-               autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next">
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Password -->
-    <div class="field">
-      <label for="password"><i class="fa-solid fa-lock"></i> Password</label>
-      <div class="control has-eye">
-        <i class="fa-solid fa-lock lead"></i>
-        <input type="password" id="password" placeholder="Minimum 8 characters"
-               autocomplete="new-password" enterkeyhint="next">
-        <button type="button" class="eye" aria-label="Show password"><i class="fa-regular fa-eye"></i></button>
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Confirm Password -->
-    <div class="field">
-      <label for="confirmPassword"><i class="fa-solid fa-lock-open"></i> Confirm Password</label>
-      <div class="control has-eye">
-        <i class="fa-solid fa-lock-open lead"></i>
-        <input type="password" id="confirmPassword" placeholder="Re-enter your password"
-               autocomplete="new-password" enterkeyhint="next">
-        <button type="button" class="eye" aria-label="Show password"><i class="fa-regular fa-eye"></i></button>
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Email -->
-    <div class="field">
-      <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
-      <div class="control">
-        <i class="fa-solid fa-envelope lead"></i>
-        <input type="email" id="email" placeholder="you@example.com"
-               autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" enterkeyhint="next">
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Phone Number -->
-    <div class="field">
-      <label for="phone"><i class="fa-solid fa-phone"></i> Phone Number</label>
-      <div class="control">
-        <i class="fa-solid fa-phone lead"></i>
-        <input type="tel" id="phone" placeholder="+92 300 0000000"
-               autocomplete="tel" inputmode="tel" enterkeyhint="next">
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Referral -->
-    <div class="field">
-      <label for="referral"><i class="fa-solid fa-share-nodes"></i> Referral</label>
-      <div class="control">
-        <i class="fa-solid fa-share-nodes lead"></i>
-        <input type="text" id="referral" placeholder="Enter referral code"
-               autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next">
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Referral ID -->
-    <div class="field">
-      <label for="referralId"><i class="fa-solid fa-user-group"></i> Referral ID</label>
-      <div class="control">
-        <i class="fa-solid fa-user-group lead"></i>
-        <input type="text" id="referralId" placeholder="Enter referral ID"
-               autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next">
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Merchant Account Type -->
-    <div class="field">
-      <label for="merchantType"><i class="fa-solid fa-layer-group"></i> Merchant Account Type</label>
-      <div class="control is-select">
-        <i class="fa-solid fa-layer-group lead"></i>
-        <select id="merchantType">
-          <option value="">Select merchant account type</option>
-          <option value="Level 1 - 50,000">Level 1 — 50,000</option>
-          <option value="Level 2 - 16,500">Level 2 — 16,500</option>
-        </select>
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Account Type -->
-    <div class="field">
-      <label for="accountType"><i class="fa-solid fa-briefcase"></i> Account Type</label>
-      <div class="control is-select">
-        <i class="fa-solid fa-briefcase lead"></i>
-        <select id="accountType">
-          <option value="">Select account type</option>
-          <option value="Individual">Individual</option>
-          <option value="Business">Business</option>
-          <option value="Merchant">Merchant</option>
-          <option value="Corporate">Corporate</option>
-        </select>
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Payment Method -->
-    <div class="field">
-      <label for="paymentMethod"><i class="fa-solid fa-wallet"></i> Payment Method</label>
-      <div class="control is-select">
-        <i class="fa-solid fa-wallet lead"></i>
-        <select id="paymentMethod">
-          <option value="">Select payment method</option>
-          <option value="Bank Transfer">Bank Transfer</option>
-          <option value="JazzCash">JazzCash</option>
-          <option value="EasyPaisa">EasyPaisa</option>
-          <option value="USDT (TRC20)">USDT (TRC20)</option>
-          <option value="Binance Pay">Binance Pay</option>
-          <option value="PayPal">PayPal</option>
-        </select>
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Payment Account -->
-    <div class="field">
-      <label for="paymentAccount"><i class="fa-solid fa-credit-card"></i> Payment Account</label>
-      <div class="control">
-        <i class="fa-solid fa-credit-card lead"></i>
-        <input type="text" id="paymentAccount" placeholder="Account / wallet number"
-               autocomplete="off" inputmode="text" enterkeyhint="done">
-      </div>
-      <small class="error-msg"></small>
-    </div>
-
-    <!-- Submit -->
-    <div class="submit-wrap">
-      <button type="submit" class="btn-submit">
-        <i class="fa-solid fa-circle-check"></i> Submit Registration
-      </button>
-    </div>
-
-    <p class="form-note">
-      <i class="fa-solid fa-lock"></i> All fields are required &nbsp;·&nbsp; Your data is encrypted and secure
-    </p>
-
-  </form>
-</main>
-
-<!-- ================= SUCCESS MODAL ================= -->
-<div class="overlay" id="overlay">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="check-circle"><i class="fa-solid fa-check"></i></div>
-    <h2 id="modalTitle">Congratulations</h2>
-    <p class="lead-txt">Your ID</p>
-
-    <div class="id-box">
-      <span id="generatedId">VIK564400</span>
-      <button type="button" class="copy-btn" id="copyBtn" aria-label="Copy ID">
-        <i class="fa-regular fa-copy"></i>
-      </button>
-    </div>
-
-    <p class="save-txt"><i class="fa-solid fa-triangle-exclamation"></i> Save it.</p>
-
-    <button type="button" class="btn-done" id="doneBtn">Done</button>
+  <div class="icon-ring">
+    <i class="fa-solid fa-triangle-exclamation"></i>
   </div>
-</div>
+
+  <div class="badge">
+    <i class="fa-solid fa-circle-info"></i> Important Notice
+  </div>
+
+  <h1>Merchant Hiring is Over</h1>
+
+  <p class="message">
+    Thank you for your interest in <strong>ViktOLK</strong>.<br>
+    We are no longer accepting new merchant applications.
+  </p>
+
+  <div class="divider"></div>
+
+  <button type="button" class="btn-close" id="closeBtn">
+    <i class="fa-solid fa-xmark"></i> Close
+  </button>
+
+  <p class="hint">
+    <i class="fa-solid fa-heart"></i> Have a wonderful day!
+  </p>
+
+</main>
 
 <script>
 (function () {
   'use strict';
 
-  const form    = document.getElementById('viktolkForm');
-  const overlay = document.getElementById('overlay');
-  const idText  = document.getElementById('generatedId');
-  const copyBtn = document.getElementById('copyBtn');
-  const doneBtn = document.getElementById('doneBtn');
+  const closeBtn = document.getElementById('closeBtn');
 
-  /* ---------- Password visibility toggle ---------- */
-  document.querySelectorAll('.eye').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const input = btn.parentElement.querySelector('input');
-      const show  = input.type === 'password';
-      input.type  = show ? 'text' : 'password';
-      btn.innerHTML = show
-        ? '<i class="fa-regular fa-eye-slash"></i>'
-        : '<i class="fa-regular fa-eye"></i>';
-    });
-  });
+  closeBtn.addEventListener('click', function () {
+    // Try multiple methods to close the tab/window
+    try {
+      window.open('', '_self', '');
+      window.close();
+    } catch (e) { /* ignore */ }
 
-  /* ---------- Collect all values ---------- */
-  function getAllValues() {
-    const data = {};
-    form.querySelectorAll('input, select').forEach(function (el) {
-      data[el.id] = el.value;
-    });
-    return data;
-  }
+    // Fallback 1: try again after short delay
+    setTimeout(function () {
+      try { window.close(); } catch (e) { /* ignore */ }
+    }, 150);
 
-  /* ---------- Validation rules ---------- */
-  const rules = {
-    name: function (v) {
-      return v.trim().length >= 3 || 'Please enter your full name (at least 3 characters).';
-    },
-    viktolkId: function (v) {
-      return /^[A-Za-z0-9_-]{4,20}$/.test(v.trim()) || 'Enter a valid ViktOLK ID (4–20 letters or digits).';
-    },
-    password: function (v) {
-      return v.length >= 8 || 'Password must be at least 8 characters long.';
-    },
-    confirmPassword: function (v, all) {
-      if (!v) return 'Please confirm your password.';
-      return v === all.password || 'Passwords do not match.';
-    },
-    email: function (v) {
-      return /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(v.trim()) || 'Enter a valid email address.';
-    },
-    phone: function (v) {
-      return /^\+?[0-9\s\-()]{7,18}$/.test(v.trim()) || 'Enter a valid phone number.';
-    },
-    referral: function (v) {
-      return v.trim().length >= 3 || 'Referral code is required.';
-    },
-    referralId: function (v) {
-      return v.trim().length >= 3 || 'Referral ID is required.';
-    },
-    merchantType: function (v) {
-      return v !== '' || 'Please select a merchant account type.';
-    },
-    accountType: function (v) {
-      return v !== '' || 'Please select an account type.';
-    },
-    paymentMethod: function (v) {
-      return v !== '' || 'Please select a payment method.';
-    },
-    paymentAccount: function (v) {
-      return v.trim().length >= 6 || 'Enter your payment account number (min 6 characters).';
-    }
-  };
-
-  /* ---------- Error helpers ---------- */
-  function setError(input, message) {
-    const field = input.closest('.field');
-    if (!field) return;
-    field.classList.add('invalid');
-    const msgEl = field.querySelector('.error-msg');
-    if (msgEl) msgEl.textContent = message;
-  }
-
-  function clearError(input) {
-    const field = input.closest('.field');
-    if (!field) return;
-    field.classList.remove('invalid');
-  }
-
-  /* ---------- Validate one field ---------- */
-  function validateField(input, allValues) {
-    const rule = rules[input.id];
-    if (!rule) return true;
-
-    const result = rule(input.value, allValues);
-
-    if (result === true) {
-      clearError(input);
-      return true;
-    }
-    setError(input, result);
-    return false;
-  }
-
-  /* ---------- Live clearing while typing ---------- */
-  form.querySelectorAll('input, select').forEach(function (el) {
-    const eventName = el.tagName === 'SELECT' ? 'change' : 'input';
-    el.addEventListener(eventName, function () {
-      if (el.closest('.field').classList.contains('invalid')) {
-        clearError(el);
+    // Fallback 2: if browser blocks closing (tab not opened by script),
+    // show a friendly message
+    setTimeout(function () {
+      if (!document.hidden && !window.closed) {
+        // Replace content with a gentle goodbye
+        document.body.innerHTML = `
+          <div style="
+            position:fixed;inset:0;
+            display:flex;align-items:center;justify-content:center;
+            flex-direction:column;gap:14px;
+            background:#070a12;color:#e9edf7;
+            font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+            padding:30px;text-align:center;
+          ">
+            <div style="
+              width:76px;height:76px;border-radius:50%;
+              display:grid;place-items:center;
+              background:linear-gradient(135deg,#6d5efc,#00d4ff);
+              font-size:2rem;color:#fff;
+              box-shadow:0 14px 40px rgba(109,94,252,.45);
+            ">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <h2 style="font-size:1.4rem;font-weight:800;margin-top:6px;">
+              You may close this tab now
+            </h2>
+            <p style="color:#8b94ad;font-size:.95rem;max-width:320px;line-height:1.6;">
+              Your browser blocked automatic closing.<br>
+              Have a wonderful day! ✨
+            </p>
+          </div>
+        `;
       }
-    });
+    }, 400);
   });
 
-  /* ---------- Submit ---------- */
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const allValues  = getAllValues();
-    const inputs     = form.querySelectorAll('input, select');
-    let firstInvalid = null;
-
-    inputs.forEach(function (input) {
-      const ok = validateField(input, allValues);
-      if (!ok && !firstInvalid) firstInvalid = input;
-    });
-
-    if (firstInvalid) {
-      /* Blur keyboard first on mobile, then scroll to error */
-      if (document.activeElement && document.activeElement.blur) {
-        document.activeElement.blur();
-      }
-      firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(function () {
-        /* Don't auto-focus on mobile to avoid keyboard jump — just scroll */
-        if (window.innerWidth > 680) {
-          firstInvalid.focus({ preventScroll: true });
-        }
-      }, 320);
-      return;
-    }
-
-    /* ---- Success ---- */
-    idText.textContent = 'VIK564400';
-
-    /* Save scroll position for iOS modal fix */
-    const scrollY = window.scrollY || window.pageYOffset;
-    document.body.dataset.scrollY = scrollY;
-    document.body.classList.add('modal-open');
-    document.body.style.top = '-' + scrollY + 'px';
-
-    overlay.classList.add('show');
-  });
-
-  /* ---------- Copy ID (with mobile fallback) ---------- */
-  copyBtn.addEventListener('click', function () {
-    const text = idText.textContent.trim();
-    const done = function () {
-      const original = copyBtn.innerHTML;
-      copyBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-      copyBtn.style.color = '#25d366';
-      setTimeout(function () {
-        copyBtn.innerHTML = original;
-        copyBtn.style.color = '';
-      }, 1600);
-    };
-
-    if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(done).catch(function () {
-        legacyCopy(text, done);
-      });
-    } else {
-      legacyCopy(text, done);
-    }
-  });
-
-  function legacyCopy(text, callback) {
-    const tmp = document.createElement('textarea');
-    tmp.value = text;
-    tmp.setAttribute('readonly', '');
-    tmp.style.position = 'absolute';
-    tmp.style.left = '-9999px';
-    document.body.appendChild(tmp);
-    tmp.select();
-    tmp.setSelectionRange(0, text.length); /* iOS */
-    try { document.execCommand('copy'); } catch (err) {}
-    document.body.removeChild(tmp);
-    if (callback) callback();
-  }
-
-  /* ---------- Close modal (restore scroll) ---------- */
-  function closeModal() {
-    overlay.classList.remove('show');
-    document.body.classList.remove('modal-open');
-    document.body.style.top = '';
-    const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
-    window.scrollTo(0, scrollY);
-  }
-
-  doneBtn.addEventListener('click', closeModal);
-
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closeModal();
-  });
-
+  // Auto-attempt to close when user presses Escape too
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && overlay.classList.contains('show')) {
-      closeModal();
-    }
+    if (e.key === 'Escape') closeBtn.click();
   });
-
-  /* ---------- iOS: prevent double-tap zoom on buttons ---------- */
-  document.addEventListener('touchend', function (e) {
-    if (e.target.closest('.btn-submit, .btn-done, .eye, .copy-btn')) {
-      e.preventDefault();
-      e.target.closest('button').click();
-    }
-  }, { passive: false });
 
 })();
 </script>
